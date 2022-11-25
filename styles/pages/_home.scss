@@ -3,10 +3,11 @@ main {
 	height: 100vh;
 
 	h1 {
-		font-size: 8rem;
+		font-size: clamp(2.5rem, 10vw, 8rem);
 		font-weight: 400;
 		position: relative;
 		z-index: 100;
+		text-align: center;
 
 		a {
 			@include hoverUnderline;
@@ -21,6 +22,21 @@ main {
 
 		.image {
 			position: relative;
+		}
+
+		@media screen and (max-width: #{$screen-large}) {
+			grid-template-columns: repeat(40, 1fr);
+			grid-template-rows: repeat(40, 1fr);
+		}
+
+		@media screen and (max-width: #{$screen-medium}) {
+			grid-template-columns: repeat(30, 1fr);
+			grid-template-rows: repeat(30, 1fr);
+		}
+
+		@media screen and (max-width: #{$screen-small}) {
+			grid-template-columns: repeat(24, 1fr);
+			grid-template-rows: repeat(30, 1fr);
 		}
 	}
 }
