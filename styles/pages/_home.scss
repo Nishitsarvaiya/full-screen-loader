@@ -1,0 +1,26 @@
+main {
+	@include flexCenter;
+	height: 100vh;
+
+	h1 {
+		font-size: 8rem;
+		font-weight: 400;
+		position: relative;
+		z-index: 100;
+
+		a {
+			@include hoverUnderline;
+		}
+	}
+
+	.images-grid {
+		@include fullAbsolute;
+		display: grid;
+		grid-template-columns: repeat(50, 1fr);
+		grid-template-rows: repeat(50, 1fr);
+
+		.image {
+			position: relative;
+		}
+	}
+}

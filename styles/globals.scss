@@ -1,0 +1,146 @@
+@import './abstracts';
+
+@font-face {
+	font-family: 'Lexend';
+	src: url('../assets/fonts/Lexend-Variable.ttf') format('truetype');
+	font-weight: 300 900;
+	font-style: oblique 0deg 10deg;
+	font-display: swap;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Lexend', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+		Droid Sans, Helvetica Neue, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	background-color: var(--light-grey);
+	color: var(--main-color);
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+
+	&:before,
+	&:after {
+		box-sizing: border-box;
+		-webkit-tap-highlight-color: transparent;
+	}
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+a,
+button {
+	&:focus-visible {
+		outline: thin dashed;
+	}
+}
+
+img {
+	max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 500;
+}
+
+h4 {
+	font-size: var(--title-4);
+	line-height: 1.18;
+}
+
+p {
+	font-size: var(--paragraph-text);
+	line-height: 1.18;
+}
+
+:root {
+	--header-height: 90px;
+	--modal-header-height: 75px;
+	--layout-top-padding: 40px;
+	--layout-horizontal-padding: 20px;
+	--section-vertical-padding: 100px;
+	--page-hero-padding-top: 132px;
+	--send-message-padding: 104px 0 162px;
+	--full-screen-gutters: 90px;
+	--cursor-dimension: 124px;
+	--scene-max-height: 850px;
+
+	--light-grey: hsl(0, 0%, 92%);
+	--dark-teal: #464c4c;
+	--black: #111115;
+	--white: #fffdfd;
+	--main-color: var(--black);
+	--transparent-white: rgba(255, 255, 255, 0.4225);
+
+	--title-1: 56px;
+	--title-2: 20px;
+	--title-3: 30px;
+	--title-4: 20px;
+	--paragraph-text: 20px;
+	--lg-paragraph-text: 30px;
+	--lg-description-text: 32px;
+	--accordion-item-number: 20px;
+	--mobile-click-area-text: 22px;
+
+	--base-scale3d: scale3d(1, 1, 1);
+	--base-translate3d: translate3d(0, 0, 0);
+
+	--primary-curve: cubic-bezier(0.62, 0.05, 0.01, 0.99);
+
+	@media screen and (min-width: #{$screen-large}) {
+		--layout-top-padding: 72px;
+		--layout-horizontal-padding: 45px;
+		--section-vertical-padding: 150px;
+		--page-hero-padding-top: 200px;
+		--send-message-padding: 280px 0 220px;
+		--full-screen-gutters: 365px;
+
+		--title-1: 94px;
+		--title-2: 28px;
+		--lg-description-text: 44px;
+	}
+
+	@media screen and (min-width: #{$screen-extra-large}) {
+		--layout-horizontal-padding: 70px;
+		--section-vertical-padding: 170px;
+		--page-hero-padding-top: 240px;
+		--send-message-padding: 355px 0 250px;
+		--full-screen-gutters: 415px;
+
+		--title-1: 124px;
+		--title-2: 40px;
+		--title-4: 22px;
+		--paragraph-text: 22px;
+		--lg-paragraph-text: 40px;
+	}
+
+	@media screen and (min-width: #{$screen-desktop}) {
+		--title-1: 144px;
+	}
+
+	@include smallHeightLargeScreen {
+		--lg-description-text: 34px;
+	}
+
+	@include smallHeightPC {
+		--title-1: 124px;
+	}
+}

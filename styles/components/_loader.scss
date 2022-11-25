@@ -1,0 +1,100 @@
+.loader {
+	@include appGrid;
+	padding: 64px var(--layout-horizontal-padding) 52px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	color: var(--white);
+	z-index: 200;
+
+	&.wipeOut {
+		&:before {
+			transform: translate3d(0, -100%, 0);
+		}
+
+		.appDescription,
+		.progress {
+			opacity: 0;
+		}
+	}
+
+	@include before {
+		@include fullAbsolute;
+		background: var(--black);
+		transform: var(--base-translate3d);
+		z-index: -1;
+		transition: transform 1.25s var(--primary-curve);
+	}
+}
+
+.appDescription {
+	grid-column-start: 1;
+	grid-column-end: 5;
+	font-size: var(--title-3);
+	text-transform: uppercase;
+	transition: opacity 0.7s var(--primary-curve);
+}
+
+.progress {
+	grid-column-start: 8;
+	grid-column-end: 13;
+	justify-self: end;
+	position: relative;
+	transition: opacity 0.7s var(--primary-curve);
+
+	&.fullContainer {
+		height: calc(100vh - 116px);
+	}
+}
+
+.progressBlock {
+	position: absolute;
+	font-size: var(--title-1);
+	width: 2em;
+	height: 1.125em;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	will-change: transform;
+	transition: transform 1.25s var(--primary-curve);
+	overflow: hidden;
+	will-change: transform;
+}
+
+.progressValue {
+	& > span {
+		display: inline-block;
+		transform: var(--base-translate3d);
+	}
+
+	&.flipVal {
+		& > span {
+			transition: 1.25s var(--primary-curve);
+			transform: translate3d(0, -100%, 0);
+
+			&:nth-child(3) {
+				transition-delay: 0.09s;
+			}
+		}
+
+		&.singleTop > span:nth-child(3) {
+			transition-delay: 0;
+		}
+
+		&.maxTop > span {
+			&:nth-child(3) {
+				transition-delay: 0.11s;
+			}
+		}
+
+		&.maxVal > span {
+			&:nth-child(2) {
+				transition-delay: 0.045s;
+			}
+		}
+	}
+}
